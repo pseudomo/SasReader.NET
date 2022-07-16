@@ -1,0 +1,29 @@
+Number,Name,Type,Data length,Format,Label
+1,recnum,Numeric,8,,Record Number
+2,square,Numeric,8,,Square of the Record Number
+3,desc,Character,200,,Description of the Row
+4,pctdone,Numeric,8,PERCENT8.,Percent Done
+5,pctincr,Numeric,8,PERCENT7.1,Percent Increment
+6,date,Numeric,8,DDMMYYD10.,
+7,datetime,Numeric,8,DATETIME.,
+8,time,Numeric,8,TIME.,
+Bitness: x86
+Compressed: null
+Endianness: LITTLE_ENDIANNESS
+Encoding: windows-1252
+Name: TESTING
+File type: DATA
+File label: 
+Date created: Fri May 18 11:38:30 UTC 2018
+Date modified: Fri May 18 11:38:30 UTC 2018
+SAS release: 9.0401M5
+SAS server type: X64_7PRO
+OS name: 
+OS type: 
+Header Length: 65536
+Page Length: 65536
+Page Count: 1
+Row Length: 256
+Row Count: 11
+Mix Page Row Count: 248
+Columns Count: 8

@@ -1,0 +1,23 @@
+Number,Name,Type,Data length,Format,Label
+1,a,Numeric,8,,
+2,b,Numeric,8,,
+Bitness: x86
+Compressed: null
+Endianness: LITTLE_ENDIANNESS
+Encoding: windows-1252
+Name: A
+File type: DATA
+File label: test
+Date created: Fri Feb 22 07:04:03 UTC 2019
+Date modified: Fri Feb 22 07:04:03 UTC 2019
+SAS release: 9.0401M3
+SAS server type: X64_7PRO
+OS name: 
+OS type: 
+Header Length: 65536
+Page Length: 65536
+Page Count: 1
+Row Length: 16
+Row Count: 2
+Mix Page Row Count: 3988
+Columns Count: 2
