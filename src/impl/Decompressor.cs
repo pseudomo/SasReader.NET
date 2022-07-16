@@ -15,24 +15,28 @@
  * limitations under the License.
  *
  * *************************************************************************
+ * The source code has been modified for the purpose of porting it to C#
+ * *************************************************************************
  */
 
-package com.epam.parso.impl;
-
-/**
- * Interface which should be implemented in all data decompressors.
- */
-interface Decompressor {
-
+namespace SasReader
+{
     /**
-     * The function to decompress data. Compressed data are an array of bytes with control bytes and data bytes.
-     * The project documentation contains descriptions of the decompression algorithm.
-     *
-     * @param offset       the offset of bytes array in <code>page</code> that contains compressed data.
-     * @param srcLength    the length of bytes array that contains compressed data.
-     * @param resultLength the length of bytes array that contains decompressed data.
-     * @param page         an array of bytes with compressed data.
-     * @return an array of bytes with decompressed data.
+     * Interface which should be implemented in all data decompressors.
      */
-    byte[] decompressRow(int offset, int srcLength, int resultLength, byte[] page);
+    interface Decompressor
+    {
+
+        /**
+         * The function to decompress data. Compressed data are an array of bytes with control bytes and data bytes.
+         * The project documentation contains descriptions of the decompression algorithm.
+         *
+         * @param offset       the offset of bytes array in <code>page</code> that contains compressed data.
+         * @param srcLength    the length of bytes array that contains compressed data.
+         * @param resultLength the length of bytes array that contains decompressed data.
+         * @param page         an array of bytes with compressed data.
+         * @return an array of bytes with decompressed data.
+         */
+        byte[] decompressRow(int offset, int srcLength, int resultLength, byte[] page);
+    }
 }

@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deveel.Math", "3rdparty\Deveel.Math\Deveel.Math.csproj", "{48933E60-E177-49EE-BC4F-9473A2B44A3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rdparty", "3rdparty", "{763300A0-FF45-41FB-8D89-75652CAD3A12}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SasParser", "src\SasParser.csproj", "{BA770175-9F69-4931-A67F-1E733DCC874E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SasParserTest", "SasParserTest\SasParserTest.csproj", "{7B91C563-226D-44A5-A9A2-3C462E1C4C29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48933E60-E177-49EE-BC4F-9473A2B44A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48933E60-E177-49EE-BC4F-9473A2B44A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48933E60-E177-49EE-BC4F-9473A2B44A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48933E60-E177-49EE-BC4F-9473A2B44A3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA770175-9F69-4931-A67F-1E733DCC874E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA770175-9F69-4931-A67F-1E733DCC874E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA770175-9F69-4931-A67F-1E733DCC874E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA770175-9F69-4931-A67F-1E733DCC874E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B91C563-226D-44A5-A9A2-3C462E1C4C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B91C563-226D-44A5-A9A2-3C462E1C4C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B91C563-226D-44A5-A9A2-3C462E1C4C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B91C563-226D-44A5-A9A2-3C462E1C4C29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48933E60-E177-49EE-BC4F-9473A2B44A3A} = {763300A0-FF45-41FB-8D89-75652CAD3A12}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D62C965-29C2-4777-A203-4AD2868B0600}
+	EndGlobalSection
+EndGlobal
