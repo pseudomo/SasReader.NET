@@ -6,7 +6,7 @@ using Xunit;
 using SasReader;
 
 
-namespace SasParserTest
+namespace SasReaderTest
 {
     public class MetadataTests
     {

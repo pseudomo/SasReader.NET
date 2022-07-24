@@ -6,7 +6,7 @@ using System.Text;
 using SasReader;
 using Xunit;
 
-namespace SasParserTest
+namespace SasReaderTest
 {
     public class DataTests
     {
