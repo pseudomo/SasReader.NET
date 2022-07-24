@@ -1,7 +1,7 @@
 # SasReader.NET
 This is the port of **parso** Java library for SAS files reading implemented by the **EPAM** https://github.com/epam/parso
 
-# Hot to use:
+# How to use:
 The library is available as a NuGet package
 
 Install using
