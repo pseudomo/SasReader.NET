@@ -20,7 +20,7 @@ namespace SasReaderTest
         string ParseSasDataToCsv(string sasFilePath)
         {
             Console.WriteLine($"Parsing file {sasFilePath}");
-            FileStream sasToParseFileInputStream = File.OpenRead(sasFilePath);
+            using FileStream sasToParseFileInputStream = File.OpenRead(sasFilePath);
 
             SasFileReader sasFileReader = new SasFileReaderImpl(sasToParseFileInputStream);
 
@@ -30,7 +30,7 @@ namespace SasReaderTest
             long rowCount = sasFileReader.getSasFileProperties().getRowCount();
             List<Column> columns = sasFileReader.getColumns();
             var parsedData = new StringBuilder();
-            StringWriter writer = new StringWriter(parsedData);
+            using StringWriter writer = new StringWriter(parsedData);
             CSVDataWriter csvDataWriter = new CSVDataWriterImpl(writer, ",", "\n", CultureInfo.GetCultureInfo("en-US"));
             csvDataWriter.writeColumnNames(columns);
 
