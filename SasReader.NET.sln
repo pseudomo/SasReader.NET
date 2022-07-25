@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SasReader", "src\SasReader.csproj", "{BA770175-9F69-4931-A67F-1E733DCC874E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SasReaderTest", "SasParserTest\SasReaderTest.csproj", "{7B91C563-226D-44A5-A9A2-3C462E1C4C29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SasReaderTest", "test\SasReaderTest.csproj", "{7B91C563-226D-44A5-A9A2-3C462E1C4C29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
