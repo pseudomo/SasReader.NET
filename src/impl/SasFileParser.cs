@@ -1128,15 +1128,7 @@ namespace SasReader
                 return null;
             }
 
-            long resultLong = Convert.ToInt64(Math.Round(resultDouble));
-            if (Math.Abs(resultDouble - resultLong) >= SasFileConstants.EPSILON)
-            {
-                return resultDouble;
-            }
-            else
-            {
-                return resultLong;
-            }
+            return resultDouble;
         }
 
         /**
