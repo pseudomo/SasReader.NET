@@ -34,10 +34,7 @@ namespace SasReaderTest
             CSVDataWriter csvDataWriter = new CSVDataWriterImpl(writer, ",", "\n", CultureInfo.GetCultureInfo("en-US"));
             csvDataWriter.writeColumnNames(columns);
 
-            for (int i = 0; i < rowCount; i++)
-            {
-                csvDataWriter.writeRow(sasFileReader.getColumns(), sasFileReader.readNext());
-            }
+            csvDataWriter.writeRows(sasFileReader.getColumns(), sasFileReader.getRowsAsEnumerable());
 
             string result = parsedData.ToString();
             //File.WriteAllText(Path.Combine(fileDir, $"{fileNameNoExt}_data_result.csv"), result);

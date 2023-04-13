@@ -39,6 +39,17 @@ namespace SasReader
         void writeRow(List<Column> columns, Object[] row, bool flush = true);
 
         /**
+         * The method to export a row from sas7bdat file (stored as an object of the {@link SasFileReaderImpl} class)
+         * using {@link CSVDataWriterImpl#writer}.
+         *
+         * @param columns   the {@link Column} class variables list that stores columns description from the sas7bdat file.
+         * @param row       the Objects arrays that stores data from the sas7bdat file.
+         * @param batchSize we will flush data to disk by batches of batchSize rows
+         * @throws java.io.IOException appears if the output into writer is impossible.
+         */
+        public void writeRows(List<Column> columns, IEnumerable<Object[]> rows, int batchSize = 500);
+
+        /**
          * The method to export a parsed sas7bdat file (stored as an object of the
          * {@link com.epam.parso.impl.SasFileReaderImpl} class) using writer.
          *

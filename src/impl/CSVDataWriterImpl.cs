@@ -90,6 +90,7 @@ namespace SasReader
          *
          * @param columns the {@link Column} class variables list that stores columns description from the sas7bdat file.
          * @param row     the Objects arrays that stores data from the sas7bdat file.
+         * @param flush   indicates whether we should flush data to disk immediately
          * @throws java.io.IOException appears if the output into writer is impossible.
          */
         public void writeRow(List<Column> columns, Object[] row, bool flush = true)
@@ -113,6 +114,36 @@ namespace SasReader
             if (flush)
             { 
                 writer.Flush();
+            }
+        }
+
+        /**
+         * The method to export a row from sas7bdat file (stored as an object of the {@link SasFileReaderImpl} class)
+         * using {@link CSVDataWriterImpl#writer}.
+         *
+         * @param columns   the {@link Column} class variables list that stores columns description from the sas7bdat file.
+         * @param row       the Objects arrays that stores data from the sas7bdat file.
+         * @param batchSize we will flush data to disk by batches of batchSize rows
+         * @throws java.io.IOException appears if the output into writer is impossible.
+         */
+        public void writeRows(List<Column> columns, IEnumerable<Object[]> rows, int batchSize = 500)
+        {
+            var rowsCounter = 0;
+            bool flushBatchToDisk = false;
+
+            foreach (var currentRow in rows)
+            {
+                if (currentRow != null)
+                {
+                    flushBatchToDisk = rowsCounter != 0 && rowsCounter % batchSize == 0;
+                    writeRow(columns, currentRow, flushBatchToDisk);
+                    rowsCounter++;
+                }
+            }
+
+            if (rowsCounter > 0 && !flushBatchToDisk) // If there are rows and a batch was not flushed, then flush data
+            {
+                getWriter().Flush();
             }
         }
 
