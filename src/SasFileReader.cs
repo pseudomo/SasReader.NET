@@ -93,5 +93,12 @@ namespace SasReader
          * @return current row index
          */
         int getOffset();
+
+        /**
+         * The function to return all rows as IEnumerable<object[]>.
+         *
+         * @return all rows as IEnumerable<object[]>
+         */
+        public IEnumerable<object[]> getRowsAsEnumerable();
     }
 }

@@ -231,5 +231,17 @@ namespace SasReader
             return sasFileParser.getSasFileProperties();
         }
 
+        /**
+         * The function to return all rows as IEnumerable<object[]>.
+         *
+         * @return all rows as IEnumerable<object[]>
+         */
+        public IEnumerable<object[]> getRowsAsEnumerable()
+        {
+            for (var i = 0; i < sasFileParser.getSasFileProperties().getRowCount(); i++)
+            {
+                yield return readNext();
+            }
+        }
     }
 }
