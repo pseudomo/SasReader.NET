@@ -92,7 +92,7 @@ namespace SasReader
          * @param row     the Objects arrays that stores data from the sas7bdat file.
          * @throws java.io.IOException appears if the output into writer is impossible.
          */
-        public void writeRow(List<Column> columns, Object[] row)
+        public void writeRow(List<Column> columns, Object[] row, bool flush = true)
         {
             if (row == null)
             {
@@ -109,7 +109,11 @@ namespace SasReader
                 }
             }
             writer.Write(getEndline());
-            writer.Flush();
+
+            if (flush)
+            { 
+                writer.Flush();
+            }
         }
 
         /**

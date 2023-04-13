@@ -36,7 +36,7 @@ namespace SasReader
          * @param row     the Objects arrays that stores data from the sas7bdat file.
          * @throws java.io.IOException appears if the output into writer is impossible.
          */
-        void writeRow(List<Column> columns, Object[] row);
+        void writeRow(List<Column> columns, Object[] row, bool flush = true);
 
         /**
          * The method to export a parsed sas7bdat file (stored as an object of the
