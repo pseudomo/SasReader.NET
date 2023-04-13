@@ -128,15 +128,15 @@ namespace SasReader
          * @throws IOException appears if the output into writer is impossible.
          */
         private static string processEntry(Column column, Object entry, CultureInfo locale,
-                                           Dictionary<int, Format> columnFormatters)
+                                           Dictionary<int, Format> columnFormatters, string dateTimeFormat = null)
         {
             if (!entry.ToString().Contains(DOUBLE_INFINITY_STRING))
             {
                 string valueToPrint;
-                if (entry.GetType() == typeof(DateTime))
+                if (entry is DateTime entryAsDatetime)
                 {
                     columnFormatters.TryGetValue(column.getId(), out Format fmt);
-                    valueToPrint = convertDateElementToString((DateTime)entry, fmt ?? getDateFormatProcessor(column.getFormat(), locale));
+                    valueToPrint = dateTimeFormat == null ? convertDateElementToString(entryAsDatetime, fmt ?? getDateFormatProcessor(column.getFormat(), locale)) : entryAsDatetime.ToString(dateTimeFormat);
                 }
                 else
                 {
@@ -152,9 +152,9 @@ namespace SasReader
                     else
                     {
                         valueToPrint = entry.ToString();
-                        if (entry.GetType() == typeof(double))
+                        if (entry is double entryAsDouble)
                         {
-                            valueToPrint = convertDoubleElementToString((Double)entry);
+                            valueToPrint = convertDoubleElementToString(entryAsDouble);
                         }
                     }
                 }
@@ -255,12 +255,12 @@ namespace SasReader
          * @return list of string objects that represent data from sas7bdat file.
          * @throws java.io.IOException appears if the output into writer is impossible.
          */
-        public static List<String> getRowValues(List<Column> columns, Object[] row, CultureInfo locale, Dictionary<int, Format> columnFormatters)
+        public static List<String> getRowValues(List<Column> columns, Object[] row, CultureInfo locale, Dictionary<int, Format> columnFormatters, string dateTimeFormat = null)
         {
             var values = new List<String>();
             for (int currentColumnIndex = 0; currentColumnIndex < columns.Count; currentColumnIndex++)
             {
-                values.Add(getValue(columns[currentColumnIndex], row[currentColumnIndex], locale, columnFormatters));
+                values.Add(getValue(columns[currentColumnIndex], row[currentColumnIndex], locale, columnFormatters, dateTimeFormat));
             }
             return values;
         }
@@ -277,9 +277,9 @@ namespace SasReader
          * @throws java.io.IOException appears if the output into writer is impossible.
          */
         public static List<String> getRowValues(List<Column> columns, Object[] row,
-                                                Dictionary<int, Format> columnFormatters)
+                                                Dictionary<int, Format> columnFormatters, string dateTimeFormat = null)
         {
-            return getRowValues(columns, row, DEFAULT_LOCALE, columnFormatters);
+            return getRowValues(columns, row, DEFAULT_LOCALE, columnFormatters, dateTimeFormat);
         }
 
         /**
@@ -293,7 +293,7 @@ namespace SasReader
          * @return a string representation of current processing entry.
          * @throws IOException appears if the output into writer is impossible.
          */
-        public static string getValue(Column column, Object entry, CultureInfo locale, Dictionary<int, Format> columnFormatters)
+        public static string getValue(Column column, Object entry, CultureInfo locale, Dictionary<int, Format> columnFormatters, string dateTimeFormat = null)
         {
             string value = "";
             if (entry != null)
@@ -304,7 +304,7 @@ namespace SasReader
                 }
                 else
                 {
-                    value = processEntry(column, entry, locale, columnFormatters);
+                    value = processEntry(column, entry, locale, columnFormatters, dateTimeFormat);
                 }
             }
             return value;

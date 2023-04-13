@@ -36,6 +36,10 @@ namespace SasReader
          * for converting locale-sensitive values stored in this column into string.
          */
         private Dictionary<int, Format> columnFormatters = new Dictionary<int, Format>();
+        /**
+         * Set DateTimeFormat if you want all DateTime values to be converted to a specific format
+         */
+        public string DateTimeFormat { get; set; } = null;
 
         /**
          * The constructor that defines writer variable to output result csv file.
@@ -95,7 +99,7 @@ namespace SasReader
                 return;
             }
             TextWriter writer = getWriter();
-            List<String> valuesToPrint = DataWriterUtil.getRowValues(columns, row, getLocale(), columnFormatters);
+            List<String> valuesToPrint = DataWriterUtil.getRowValues(columns, row, getLocale(), columnFormatters, DateTimeFormat);
             for (int currentColumnIndex = 0; currentColumnIndex < columns.Count; currentColumnIndex++)
             {
                 writer.Write(checkSurroundByQuotes(getDelimiter(), valuesToPrint[currentColumnIndex]));
