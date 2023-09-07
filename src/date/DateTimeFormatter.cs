@@ -48,12 +48,13 @@ namespace SasReader
 
             return dateTime.ToString(
                 Pattern
-                .Replace("u", GetDayOfWeekNumber(dateTime).ToString()), Culture)
+                .Replace("u", GetDayOfWeekNumber(dateTime).ToString())
                 .Replace("D", dateTime.DayOfYear.ToString())
                 .Replace("#", TimeZone.Id)
                 .Replace("Z", dateTime.ToString("zzz").Replace(":", ""))
                 .Replace("SSS", dateTime.Millisecond.ToString("D3"))
-                .Replace("SS", dateTime.Millisecond.ToString("D2")
+                .Replace("SS", dateTime.Millisecond.ToString("D2")), 
+                Culture
             );
         }
 
