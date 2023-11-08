@@ -289,18 +289,19 @@ namespace SasReader
         {
             bool endOfMetadata = false;
             processSasFileHeader(encoding);
-            cachedPage = new byte[sasFileProperties.getPageLength()];
+            int bytesToRead = sasFileProperties.getPageLength();
+            cachedPage = new byte[bytesToRead];
+
             while (!endOfMetadata)
             {
-                try
-                {
-                    sasFileStream.Read(cachedPage, 0, sasFileProperties.getPageLength());
-                }
-                catch (EndOfStreamException)
+                int bytesRead = sasFileStream.Read(cachedPage, 0, bytesToRead);
+
+                if (bytesRead < bytesToRead)
                 {
                     eof = true;
                     break;
                 }
+
                 endOfMetadata = processSasFilePageMeta();
             }
         }
